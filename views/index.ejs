@@ -1109,13 +1109,79 @@ var markers = new L.MarkerClusterGroup();
 
 for (var i = 0; i < addressPoints.length; i++) {
     var a = addressPoints[i];
-    var title = a[2] + " " + a[3] + "\n" + a[4] + "\n" + a[5]
-    var marker = L.marker(new L.LatLng(a[0], a[1]), {
-        icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
+    var title = a[2] + " " + a[3] + "\n" + a[4] + "\n" + a[5];
+    if(a[2] === "BURGLARY") {
+      
+      var marker = L.marker(new L.LatLng(a[0], a[1]), {
+        icon: L.mapbox.marker.icon({'marker-symbol': 'pitch', 'marker-color': 'e74c3c'}),
         title: title
-    });
-    marker.bindPopup(title);
+      });
+      marker.bindPopup(title);
     markers.addLayer(marker);
+    }
+    if(a[2] === "THEFT F/AUTO") {
+      console.log("123213213")
+      var marker = L.marker(new L.LatLng(a[0], a[1]), {
+        icon: L.mapbox.marker.icon({'marker-symbol': 'car', 'marker-color': '2980b9'}),
+        title: title
+      });
+      marker.bindPopup(title);
+    markers.addLayer(marker);
+    }
+    if(a[2] === "MOTOR VEHICLE THEFT") {
+      var marker = L.marker(new L.LatLng(a[0], a[1]), {
+        icon: L.mapbox.marker.icon({'marker-symbol': 'car', 'marker-color': '3498db'}),
+        title: title
+      });
+      marker.bindPopup(title);
+    markers.addLayer(marker);
+    }
+    if(a[2] === "ROBBERY") {
+      var marker = L.marker(new L.LatLng(a[0], a[1]), {
+        icon: L.mapbox.marker.icon({'marker-symbol': 'pitch', 'marker-color': '607D8B'}),
+        title: title
+      });
+      marker.bindPopup(title);
+    markers.addLayer(marker);
+    }
+    if(a[2] === "BURGLARY") {
+      var marker = L.marker(new L.LatLng(a[0], a[1]), {
+        icon: L.mapbox.marker.icon({'marker-symbol': 'building', 'marker-color': '795548'}),
+        title: title
+      });
+      marker.bindPopup(title);
+      markers.addLayer(marker);
+    }
+    if(a[2] === "SEX ABUSE") {
+      var marker = L.marker(new L.LatLng(a[0], a[1]), {
+        icon: L.mapbox.marker.icon({'marker-symbol': 'heart', 'marker-color': 'FFEB3B'}),
+        title: title
+      });
+      marker.bindPopup(title);
+      markers.addLayer(marker);
+    }
+    if(a[2] === "ASSAULT W/DANGEROUS WEAPON") {
+      var marker = L.marker(new L.LatLng(a[0], a[1]), {
+        icon: L.mapbox.marker.icon({'marker-symbol': 'baseball', 'marker-color': '76FF03'}),
+        title: title
+      });
+      marker.bindPopup(title);
+      markers.addLayer(marker);
+    }
+    
+    else {
+      console.log(a[2]);
+      var marker = L.marker(new L.LatLng(a[0], a[1]), {
+        icon: L.mapbox.marker.icon({'marker-symbol': 'baseball', 'marker-color': 'F44336'}),
+        title: title
+      });
+      marker.bindPopup(title);
+      markers.addLayer(marker);
+    }
+    
+    
+    
+    
 }
 
 map.addLayer(markers);
